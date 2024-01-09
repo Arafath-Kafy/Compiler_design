@@ -1,0 +1,28 @@
+inp = input()
+
+print("| Operator |        Type         | Validity |")
+print("============================================")
+unaryop = ['++', '--']
+arthiop = ['+', '-', '*', '/', '%']
+relatop = ['<', '<=', '>', '>=', '==', '!=']
+assignop = ['=', '+=', '-=', '*=', '%=']
+
+for i in unaryop:
+    if i in inp:
+        print(f"|    {i}    |    Unary Operator   |   valid  |")
+        inp = inp.replace(i,'')
+
+for i in arthiop:
+    if i in inp:
+        print(f"|    {i}    | Arithmetic Operator |   valid  |")
+        inp = inp.replace(i, '')
+
+for i in relatop:
+    if i in inp:
+        print(f"|    {i}     | Relational Operator |   valid  |")
+        inp = inp.replace(i, ' ')
+
+for i in assignop:
+    if i in inp:
+        print(f"|    {i}     | Assignment Operator |   valid  |")
+        inp = inp.replace(i, '')
