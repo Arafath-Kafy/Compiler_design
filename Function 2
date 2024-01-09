@@ -1,0 +1,27 @@
+user_input = input()
+word_list= user_input.split(" ")
+data_type = ['int', 'float', 'double', 'char']
+input_length = len(user_input)
+flag = 0
+
+for i in range (input_length):
+   if(user_input[i]=='('):
+       for j  in range(i,input_length):
+           if(user_input[j]==')'):
+               pos1 = j+1
+           new_word_list = user_input[i + 1: input_length - 2].split(",")
+if(user_input[pos1]=='{' and user_input[input_length-1]=='}'):
+  flag=1
+
+
+if (flag==1):
+ print("It's a function")
+elif(flag==0):
+ print("Not a function")
+
+if word_list[0] in data_type:
+ print("Return Type -> " +word_list[0])
+ print("Parameter -> ", ",".join(new_word_list))
+else:
+ print("Return Type -> void")
+ print("Parameter -> ", ",".join(new_word_list))
