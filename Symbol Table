@@ -1,0 +1,59 @@
+def menu():
+   print("Choose a menu: ")
+   print("1. Insert")
+   print("2. Delete")
+   print("3. Search")
+   print("4. View")
+   option = input("Choose an option: ")
+
+   if option == "1":
+       Insert()
+   elif option == "2":
+       Delete()
+   elif option == "3":
+       Search()
+   else:
+       View()
+
+Symbols = []
+
+def Insert():
+   while True:
+       Identifier = input("Enter an Identifier: ")
+       if Identifier == "-1":
+           break
+       Symbols.append(Identifier)
+
+   menu()
+
+def View():
+   print(f"ID     |     Identifiers")
+   for i in range(len(Symbols)):
+       print(f"{i}      |     {Symbols[i]}")
+
+
+   menu()
+
+def Delete():
+   DeletedSymbol = input("Enter the Identifier you want to delete: ")
+
+   if DeletedSymbol in Symbols:
+       Symbols.remove(DeletedSymbol)
+       print("Symbol deleted successfully!")
+   else:
+       print("Symbol not found")
+
+   menu()
+
+def Search():
+   searchItem = input("Enter what you want to search: ")
+   if searchItem in Symbols:
+       print("Item found")
+   else:
+       print("Item not found")
+
+   menu()
+
+
+
+menu()
