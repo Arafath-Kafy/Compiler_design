@@ -1,0 +1,31 @@
+user_input = input()
+word_list = user_input.split(" ")
+data_type = ['int', 'float', 'double', 'char']
+input_length = len(user_input)
+flag = 0
+pos1 = 0
+pos2 = 0
+for i in range(input_length):
+   if user_input[i] == '(':
+       pos1 = i+1
+       for j in range(i, input_length):
+           if user_input[j] == ')':
+               pos2 = j
+               flag = 1
+
+new_word_list = user_input[pos1: pos2].split(",")
+
+if flag == 1:
+   print("Function type -> Valid")
+   if word_list[0] in data_type:
+       print("Return Type -> " + word_list[0])
+       if pos2 != pos1:
+           print("Parameter -> ", ",".join(new_word_list))
+
+   else:
+       print("Return Type -> void")
+       if pos2 != pos1:
+           print("Parameter -> ", ",".join(new_word_list))
+
+elif flag == 0:
+   print("Error Found!")
